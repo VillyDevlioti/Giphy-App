@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+  }
+
+body {
+    padding: 3%;
+}
+
+.gif-preset, #add-gif {
+    color: white;
+    font-size: 18px;
+    background-color:#4aaaa5;
+    margin: 0 1% 2% 1%;
+    padding: 0 2%;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+
+}
+
+.gif-preset:hover, #add-gif:hover {
+    color: #4aaaa5;
+    background-color: white;
+
+}
+
+#add-gif {
+    margin-top: 2%;
+    padding: 0 4%;
+}
