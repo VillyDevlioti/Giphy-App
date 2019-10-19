@@ -32,12 +32,28 @@ $(document).ready(function() {
             $.each(response.data, function(key,value) {
                 console.log("key is:",key,"value is:",value, value.images.fixed_height_still.url,"rating is:", value.rating);
                 var newDiv = $("#gifs-view");
-                newDiv.append($("<img>").attr("src",value.images.fixed_height_still.url));
+                var newImg =$("<img>");
+                newDiv=newDiv.append("<span>"+value.rating);
+                newDiv = newDiv.append(newImg.attr("src",value.images.fixed_height_still.url));
+                newImg.attr("image-state","still");
+                newImg.attr("image-still",value.images.fixed_height_still.url);
+                newImg.attr("image-animate",value.images.fixed_height.url);
             });
         });
 
     }
-    
+
+    //function to toggle between still and animation
+    function toggleState(){
+        console.log("inside toggle");
+        var state = $(this).attr("image-state");
+        console.log(state);
+        var toggle = {"still": "animate", "animate":"still"}
+        $(this).attr("src", $(this).attr("image-"+toggle[state]));
+        $(this).attr("image-state", toggle[state]);
+    }
+
+
     //this handles the submit button
     $("#add-gif").on("click", function(e) {
         e.preventDefault(); //prevent re-initializing the screen! It happens when we have a submit button
@@ -50,6 +66,7 @@ $(document).ready(function() {
 
     //calls the display function, each time a button is clicked
     $(document).on("click", "button", displayGifs);
+    $(document).on("click","img", toggleState);
 
     //this pretty much starts it all
     renderButtons();
