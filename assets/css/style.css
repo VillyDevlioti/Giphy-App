@@ -6,6 +6,10 @@ body {
     padding: 3%;
 }
 
+img {
+    margin: 1% 1%;
+}
+
 .gif-preset, #add-gif {
     color: white;
     font-size: 18px;
