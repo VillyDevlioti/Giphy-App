@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    var topics = ["cat", "dog", "otter", "kitten", "puppy", "elephant"];
+    var topics = ["cat", "dog", "otter", "kitten", "puppy", "elephant", "tiger", "leopard", "llama"];
 
     //rendering my buttons
     function renderButtons(){
@@ -29,9 +29,10 @@ $(document).ready(function() {
         .then(function(response) {
             console.log(response);
             console.log(response.data);
-            $.each(response.data, function(index,value) {
-                console.log(index,value, value.images.fixed_height.url);
-                $("#gifs-view").append($("<img>").attr("src",value.images.original_still.url));
+            $.each(response.data, function(key,value) {
+                console.log("key is:",key,"value is:",value, value.images.fixed_height_still.url,"rating is:", value.rating);
+                var newDiv = $("#gifs-view");
+                newDiv.append($("<img>").attr("src",value.images.fixed_height_still.url));
             });
         });
 
@@ -43,6 +44,7 @@ $(document).ready(function() {
         var newButton = $("#gif-input").val(); // or $("#gif-input").val().trim(); to get rid of the spaces in between
         topics.push(newButton);
         console.log(topics);
+        $("#gif-input").val(""); //clear the box after each submit action
         renderButtons();
     });
 

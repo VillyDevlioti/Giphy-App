@@ -4,16 +4,31 @@
 
 body {
     padding: 3%;
+    background-image:
+        linear-gradient(
+        to right, 
+        rgb(129, 104, 255),
+        rgb(243, 178, 255),
+        rgb(220, 250, 137)
+        );
+}
+
+h1 {
+    font-family: 'Modak', cursive;
+    font-size: 68px;
+    text-align: center;
+    color: rgb(251, 255, 45);
 }
 
 img {
     margin: 1% 1%;
+    border: 2px dotted #fff;
 }
 
 .gif-preset, #add-gif {
     color: white;
     font-size: 18px;
-    background-color:#4aaaa5;
+    background-color:#ce4cd3;
     margin: 0 1% 2% 1%;
     padding: 0 2%;
     border: 1px solid #ccc;
@@ -22,12 +37,16 @@ img {
 }
 
 .gif-preset:hover, #add-gif:hover {
-    color: #4aaaa5;
-    background-color: white;
+    color: #ce4cd3;
+    background-color: rgb(251, 255, 45);
 
 }
 
 #add-gif {
-    margin-top: 2%;
+    margin-top: 5%;
     padding: 0 4%;
+}
+
+#gif-input {
+    width: 100%;
 }
